@@ -1,3 +1,7 @@
+import Image from 'next/image';
+import billboards from '@/assets/photos/billboards.jpg';
+import socialphone from '@/assets/photos/socialphone.jpg';
+import laptopphone from '@/assets/photos/laptopphone.jpg';
 import { HISTORY_KEY, UTM_PRESETS } from '@/lib/logic';
 import { MergeToggle } from './MergeToggle';
 import { ClearHistory, RecentList } from './RecentLinks';
@@ -69,6 +73,10 @@ function Split() {
   );
 }
 
+function Billboards() {
+  return <figure className="ph-strip" aria-hidden="true"><Image className="ph-bg" src={billboards} alt="" fill sizes="100vw" placeholder="blur" /></figure>;
+}
+
 function Channels() {
   return (
     <section className="channels below" aria-labelledby="channels-title">
@@ -120,10 +128,12 @@ function AddressedTo() {
         <div className="to__row" data-in>
           <span className="to__k">To</span>
           <div><h2>Social media managers</h2><p>Tag each link before it goes into a post, an ad or a WhatsApp broadcast.</p></div>
+          <figure className="to__photo" aria-hidden="true"><Image className="ph-bg" src={socialphone} alt="" fill sizes="340px" placeholder="blur" /></figure>
         </div>
         <div className="to__row" data-in>
           <span className="to__k">To</span>
           <div><h2>Founders launching a product</h2><p>Keep campaign names consistent so the signup report still makes sense next month.</p></div>
+          <figure className="to__photo" aria-hidden="true"><Image className="ph-bg" src={laptopphone} alt="" fill sizes="340px" placeholder="blur" /></figure>
         </div>
       </div>
     </section>
@@ -134,6 +144,7 @@ export function Below() {
   return (
     <>
       <Split />
+      <Billboards />
       <Channels />
       <Local />
       <AddressedTo />
